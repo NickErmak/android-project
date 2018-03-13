@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notebook</string>
+    <string name="main_btn_add">add</string>
+    <string name="edit_et_hint">введите текст</string>
+</resources>

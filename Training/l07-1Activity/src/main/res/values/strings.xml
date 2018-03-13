@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">FirstActivity</string>
+    <!-- MAIN ACTIVITY-->
+    <string name="main_title">Training</string>
+    <string name="main_btn_entry">Вход</string>
+    <string name="main_btn_registration">Регистрация</string>
+    <string name="main_btn_about">О программе</string>
+    <string name="main_url_about">https://developer.android.com/index.html</string>
+    <!-- SIGN IN ACTIVITY-->
+    <string name="sign_in_title">Вход</string>
+    <string name="sign_in_login">Логин</string>
+    <string name="sign_in_password">Пароль</string>
+    <string name="sign_in_btn_register">Войти</string>
+    <string name="sign_in_btn_return">Назад</string>
+    <!-- INFO ACTIVITY-->
+    <string name="info_title">Информация</string>
+    <string name="info_login">Логин: </string>
+    <string name="info_password">Пароль: </string>
+    <string name="info_name">Имя: </string>
+    <string name="info_surname">Фамилия: </string>
+    <string name="info_sex">Пол: </string>
+    <string name="info_add_info">Дополнительная информация: </string>
+    <!-- REGISTRATION ACTIVITY-->
+    <string name="reg_title">Регистрация</string>
+    <string name="reg_login">Логин</string>
+    <string name="reg_password">Пароль</string>
+    <string name="reg_password_repeat">Повторите пароль</string>
+    <string name="reg_name">Имя</string>
+    <string name="reg_surname">Фамилия</string>
+    <string name="reg_man">Мужчина</string>
+    <string name="reg_woman">Женщина</string>
+    <string name="reg_none">Не определилось</string>
+    <string name="reg_add_info">Дополнительная информация</string>
+    <string name="reg_accept_conditions">Я принимаю условия</string>
+    <string name="reg_registrate">Зарегестрироваться</string>
+    <!--format-->
+    <string name="min_length_format">Минимальная длина - %1$d</string>
+
+    <string name="toast_msg_error">Error</string>
+    <string name="msg_error_empty">Can\'t be empty!</string>
+    <string name="msg_error_passwords">Passwords are not the same!</string>
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_reg">RegActivity</string>
+
+
+</resources>

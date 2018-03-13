@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Login</string>
+
+    <string name="login_correct">felix</string>
+    <string name="password_correct">228</string>
+
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+
+    <string name="toast_msg_success">Success!</string>
+    <string name="toast_msg_error">Error</string>
+    <string name="toast_msg_error_empty">Can\'t be empty!</string>
+    <string name="toast_msg_error_incorrect">Incorrect login or password!</string>
+
+</resources>

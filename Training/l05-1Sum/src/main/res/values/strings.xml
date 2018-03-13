@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sum</string>
+    <string name="btn_sum">SUM</string>
+    <string name="pt_first">first num</string>
+    <string name="pt_second">second num</string>
+    <string name="error">error</string>
+</resources>

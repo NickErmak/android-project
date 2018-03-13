@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Training.iml" filepath="$PROJECT_DIR$/Training.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l05-1Sum/l05-1Sum.iml" filepath="$PROJECT_DIR$/l05-1Sum/l05-1Sum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l06-1Login/l06-1Login.iml" filepath="$PROJECT_DIR$/l06-1Login/l06-1Login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l07-1Activity/l07-1Activity.iml" filepath="$PROJECT_DIR$/l07-1Activity/l07-1Activity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l08-1Calculator/l08-1Calculator.iml" filepath="$PROJECT_DIR$/l08-1Calculator/l08-1Calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l10-1TextEditor/l10-1TextEditor.iml" filepath="$PROJECT_DIR$/l10-1TextEditor/l10-1TextEditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l11-1Notebook/l11-1Notebook.iml" filepath="$PROJECT_DIR$/l11-1Notebook/l11-1Notebook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l12-1Notebook/l12-1Notebook.iml" filepath="$PROJECT_DIR$/l12-1Notebook/l12-1Notebook.iml" />
+    </modules>
+  </component>
+</project>

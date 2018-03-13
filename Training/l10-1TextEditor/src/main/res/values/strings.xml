@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TextEditor</string>
+    <!--MAIN-->
+    <string name="main_btn_view_file">Посмотреть файл</string>
+    <string name="main_btn_edit_file">Редактировать файл</string>
+    <string name="main_btn_create_file">Создать файл</string>
+    <string name="main_btn_settings">Настройки</string>
+
+    <!--CREATE_EDIT-->
+    <string name="edit_title">Редактирование</string>
+    <string name="view_title">Просмотр</string>
+
+    <!--SETTINGS-->
+    <string name="settings_color_black">Black</string>
+    <string name="settings_color_blue">Blue</string>
+    <string name="settings_size_20">20</string>
+    <string name="settings_size_12">12</string>
+</resources>
