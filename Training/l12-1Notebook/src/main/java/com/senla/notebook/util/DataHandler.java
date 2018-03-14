@@ -61,8 +61,8 @@ public class DataHandler {
         return sb.toString();
     }
 
-    public List<NoteItem> getAll() {
-        List<NoteItem> docs = new ArrayList<>();
+    public ArrayList<NoteItem> getAll() {
+        ArrayList<NoteItem> docs = new ArrayList<>();
         File[] files = filePath.listFiles();
         for (File file: files) {
             NoteItem newItem = new NoteItem(file.getName().replace(".txt", ""), file.lastModified());

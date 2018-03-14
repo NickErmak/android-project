@@ -11,42 +11,25 @@ import android.widget.EditText;
 import com.senla.notebook.R;
 import com.senla.notebook.util.DataHandler;
 
-public class EditActivity extends AppCompatActivity implements View.OnClickListener{
+public class EditActivity extends AppCompatActivity {
 
-    private final String KEY_NOTE = "keyNote";
+    public static final String KEY_NOTE_TEXT = "keyNoteText";
 
     private EditText mEt;
-    private Button mBtnOk, mBtnCancel;
-    private DataHandler dataHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        dataHandler = new DataHandler(this);
-
         mEt = (EditText) findViewById(R.id.edit_et);
-        mBtnOk = (Button) findViewById(R.id.edit_btn_ok);
-        mBtnCancel = (Button) findViewById(R.id.edit_btn_cancel);
-
-        mBtnCancel.setOnClickListener(this);
-        mBtnOk.setOnClickListener(this);
-
-        mEt.setText(getIntent().getStringExtra(KEY_NOTE));
+        mEt.setText(getIntent().getStringExtra(KEY_NOTE_TEXT));
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.edit_btn_ok:
-                setResult(RESULT_OK, new Intent().putExtra("note", mEt.getText().toString()));
-                finish();
-                break;
-            case R.id.edit_btn_cancel:
-                setResult(RESULT_CANCELED);
-                finish();
-                break;
-        }
+    protected void onPause() {
+        super.onPause();
+        String note = mEt.getText().toString();
+        setResult(RESULT_OK, new Intent().putExtra(KEY_NOTE_TEXT, note));
     }
 }
