@@ -21,6 +21,7 @@ public class DataHandler {
 
     private final String DOCUMENTS_FOLDER = "documents";
     private final String FILE_SEPARATOR = "/";
+    private final String FILE_EXTENSION = ".txt";
     private File filePath;
 
     public DataHandler(Activity activity) {
@@ -30,8 +31,8 @@ public class DataHandler {
         }
     }
 
-    public boolean writeToFile(String data) {
-        File file = new File(filePath + FILE_SEPARATOR + data.split("\n")[0].trim() + ".txt");
+    public boolean writeToFile(String data, String previousTitle) {
+        File file = getFile(data, previousTitle);
 
         try (FileOutputStream fos = new FileOutputStream(file);
              OutputStreamWriter osw = new OutputStreamWriter(fos);
@@ -46,8 +47,22 @@ public class DataHandler {
         }
     }
 
+    private File getFile(String data, String previousTitle) {
+        String newTitle = data.split("\n")[0].trim();
+        File fileNew = new File(filePath + FILE_SEPARATOR + newTitle + ".txt");
+
+        if (previousTitle == null || previousTitle.equals(newTitle)) {
+            return fileNew;
+        } else {
+            File fileOld= new File(filePath + FILE_SEPARATOR + previousTitle + FILE_EXTENSION);
+            fileOld.renameTo(fileNew);
+            return fileOld;
+        }
+    }
+
     public String getNote (String title) {
         File file = new File (filePath + FILE_SEPARATOR + title + ".txt");
+
         StringBuilder sb = new StringBuilder();
 
         try (FileInputStream fis = new FileInputStream(file); InputStreamReader isr = new InputStreamReader(fis); BufferedReader br = new BufferedReader(isr)) {

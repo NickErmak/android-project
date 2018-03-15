@@ -14,20 +14,23 @@ import com.senla.notebook.R;
 import com.senla.notebook.adapter.NoteAdapter;
 import com.senla.notebook.bean.NoteItem;
 
+import java.util.Date;
 import java.util.List;
 
 public class FragmentNoteList extends Fragment {
 
-    public final static String KEY_NOTES = "keyNotes";
-
     public interface INoteClickEvent {
         void showNote(String title);
+        void createNote();
     }
 
+    public final static String KEY_NOTES = "keyNotes";
 
     private INoteClickEvent noteClickEvent;
     private NoteAdapter adapter;
     private ListView mLvNotes;
+    private List<NoteItem> notes;
+    private NoteItem selectedNote;
 
     @Override
     public void onAttach(Context context) {
@@ -45,21 +48,45 @@ public class FragmentNoteList extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mLvNotes = (ListView) view.findViewById(R.id.main_lv_note);
+        view.findViewById(R.id.main_btn_new).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                noteClickEvent.createNote();
+                selectedNote = null;
+            }
+        });
 
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        List<NoteItem> notes = getArguments().getParcelableArrayList(KEY_NOTES);
+        notes = getArguments().getParcelableArrayList(KEY_NOTES);
         adapter = new NoteAdapter(getActivity(), notes);
         mLvNotes.setAdapter(adapter);
         mLvNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                String title = ((NoteItem) adapter.getItem(position)).getTitle();
+                selectedNote = (NoteItem) adapter.getItem(position);
+                String title = selectedNote.getTitle();
                 noteClickEvent.showNote(title);
             }
         });
+    }
+
+    public void addNote(String note) {
+        notes.add(new NoteItem(note.split("\n")[0], new Date().getTime()));
+        adapter.notifyDataSetChanged();
+    }
+
+    public void refreshNote(String note) {
+        if (selectedNote != null) {
+            selectedNote.setTitle(note.split("\n")[0]);
+            selectedNote.setDate(new Date().getTime());
+            adapter.notifyDataSetChanged();
+        } else {
+            addNote(note);
+        }
+
     }
 }

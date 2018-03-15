@@ -44,6 +44,14 @@ public class NoteItem implements Parcelable{
         return date;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDate(Long date) {
+        this.date = date;
+    }
+
     @Override
     public int describeContents() {
         return 0;
