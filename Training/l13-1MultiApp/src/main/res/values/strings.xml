@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Calculator Tool Bar</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+
+    <!--MAIN-->
+
+    <string name="main_btn_about_program">О программе</string>
+    <string name="main_btn_about_author">Об авторе</string>
+    <string name="main_btn_exit">Выход</string>
+    <string name="main_toolbar_title">Мультифунк</string>
+
+    <string name="frag_main">Главная</string>
+    <string name="frag_calculated">Калькулятор</string>
+    <string name="frag_edit_note">Текстовый редактор</string>
+
+    <!--DIALOGS-->
+    <string name="dialog_program_title">О программе</string>
+    <string name="dialog_program_message">Не программа, а просто - КОНФЭТА!!! </string>
+    <string name="dialog_author_title">Об авторе</string>
+    <string name="dialog_author_message">paranoid android</string>
+    <string name="dialog_positive_btn">ok</string>
+    <string name="dialog_exit_message">Вы действительно хотите выйти?</string>
+    <string name="dialog_negative_btn">cancel</string>
+
+
+</resources>

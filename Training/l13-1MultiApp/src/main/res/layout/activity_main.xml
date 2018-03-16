@@ -16,22 +16,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:minHeight="80dp"
+            android:minHeight="@dimen/toolbar_min_height"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/main_toolbar_title" />
 
-        <TextView
+        <FrameLayout
+            android:id="@+id/main_frame"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
     </LinearLayout>
 
     <ListView
         android:id="@+id/main_lv"
-        android:layout_width="240dp"
+        android:layout_width="@dimen/nav_drawer_width"
         android:layout_height="match_parent"
+        android:padding="20dp"
         android:layout_gravity="start"
-        class="@layout/">
+        android:background="@color/color_drawer">
     </ListView>
 
 </android.support.v4.widget.DrawerLayout>
