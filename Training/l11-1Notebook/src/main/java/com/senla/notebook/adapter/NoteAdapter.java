@@ -67,6 +67,7 @@ public class NoteAdapter extends BaseAdapter {
         viewHolder.title.setText(parseDateToString(note.getDate()));
         viewHolder.date.setText(note.getTitle());
 
+
         return view;
     }
 }

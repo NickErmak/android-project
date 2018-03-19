@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Serialization</string>
+    <string name="action_save">save</string>
+    <string name="action_add">add</string>
+    <string name="btn_plus">+</string>
+    <string name="btn_minus">-</string>
+    <string name="et_hint">Item title</string>
+    <string name="tv_value">0</string>
+</resources>

@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -50,11 +51,10 @@ public class MainActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String tag = ((TextView) view.findViewById(R.id.lv_tv_tag)).getText().toString();
-                String s = getString(R.string.frag_main);
-                switch (tag) {
+                String optionTag = ((TextView) view.findViewById(R.id.lv_tv_tag)).getText().toString();
+                switch (optionTag) {
                     case FragMainScreen.FRAGMENT_TAG:
-                        showFragment(FragMainScreen.newInstance(), tag, true);
+                        showFragment(FragMainScreen.newInstance(), FragMainScreen.FRAGMENT_TAG, true);
                         break;
                     case FragCalculated.FRAGMENT_TAG:
                         getSupportFragmentManager().popBackStack(FragMainScreen.FRAGMENT_TAG, 0);
@@ -73,11 +73,10 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.addDrawerListener(mDrawerToggle);
 
-        Fragment fragMainScreen = FragMainScreen.newInstance();
-        FragmentTransaction fTrans = getSupportFragmentManager().beginTransaction();
-        fTrans.replace(R.id.main_frame, fragMainScreen);
-        fTrans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        fTrans.commit();
+        if (savedInstanceState == null) {
+            showFragment(FragMainScreen.newInstance(), FragMainScreen.FRAGMENT_TAG, true);
+        }
+
     }
 
     private SimpleAdapter createSimpleAdapter() {
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("newTItle");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-*/
+        */
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -154,6 +153,11 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
+            return;
+        }
+
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
+            finish();
             return;
         }
         super.onBackPressed();

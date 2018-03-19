@@ -12,6 +12,8 @@
       <module fileurl="file://$PROJECT_DIR$/l11-1Notebook/l11-1Notebook.iml" filepath="$PROJECT_DIR$/l11-1Notebook/l11-1Notebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/l12-1Notebook/l12-1Notebook.iml" filepath="$PROJECT_DIR$/l12-1Notebook/l12-1Notebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/l13-1MultiApp/l13-1CalculatorToolbar.iml" filepath="$PROJECT_DIR$/l13-1MultiApp/l13-1CalculatorToolbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l13-1MultiApp/l13-1MultiApp.iml" filepath="$PROJECT_DIR$/l13-1MultiApp/l13-1MultiApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l15-1toolbar&amp;externalizable/l15-1toolbar&amp;externalizable.iml" filepath="$PROJECT_DIR$/l15-1toolbar&amp;externalizable/l15-1toolbar&amp;externalizable.iml" />
     </modules>
   </component>
 </project>
