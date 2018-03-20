@@ -19,6 +19,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String KEY_ELEMENTS = "KEY_ELEMENTS";
+
     private ElementAdapter mAdapter;
     private ArrayList<Element> mElements;
     private DataHandler mDataHandler;
@@ -29,13 +31,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mDataHandler = new DataHandler(this);
+
+        if (savedInstanceState != null) {
+            mElements = savedInstanceState.getParcelableArrayList(KEY_ELEMENTS);
+        } else {
+            mElements = mDataHandler.readFromFile();
+        }
+        Log.e("TAG", "onCreate = " + mElements);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mDataHandler = new DataHandler(this);
-        // mElements = mDataHandler.readFromFile();
-        mElements = new ArrayList<>();
-        mElements.add(new Element("tiitl1", 10));
         mAdapter = new ElementAdapter(this, mElements);
 
         mLv = (ListView) findViewById(R.id.list_elements);
@@ -48,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -59,23 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();
                 break;
             case R.id.action_save:
-
-                int count = mAdapter.getCount();
-
-                Log.e("count = ", "" + count);
-
-                mElements = new ArrayList<>();
-                for (int i = 0; i < count; i++) {
-
-                    ViewGroup view = (ViewGroup) mLv.getChildAt(i);
-                    String title = ((TextView) view.findViewById(R.id.et_title)).getText().toString();
-                    String value = ((TextView) view.findViewById(R.id.tv_value)).getText().toString();
-
-                    Element element = new Element(title, Integer.valueOf(value));
-                    mElements.add(element);
-                    Log.e("TAG", "i = " + i + ", element = " + element.toString());
-                }
-
+                Log.e("TAG", "save = " + mElements);
                 mDataHandler.writeToFile(mElements);
                 Toast.makeText(this, "Saved", Toast.LENGTH_LONG).show();
                 break;
@@ -83,5 +72,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(KEY_ELEMENTS, mElements);
+        Log.e("TAG", "saving = " + mElements);
+    }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mElements = savedInstanceState.getParcelableArrayList(KEY_ELEMENTS);
+        Log.e("TAG", "loading = " + mElements);
+    }
 }

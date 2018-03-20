@@ -13,7 +13,7 @@
         />
 
     <ImageButton
-        android:id="@+id/btn_reset"
+        android:id="@+id/btn_delete"
         android:layout_width="@dimen/btn_size"
         android:layout_height="@dimen/btn_size"
         android:background="@android:drawable/ic_notification_clear_all"
@@ -34,7 +34,7 @@
         android:layout_width="@dimen/btn_size"
         android:layout_height="@dimen/btn_size"
         android:layout_below="@+id/et_title"
-        android:layout_toStartOf="@+id/btn_reset"
+        android:layout_toStartOf="@+id/btn_delete"
         android:text="@string/btn_plus"
         />
 

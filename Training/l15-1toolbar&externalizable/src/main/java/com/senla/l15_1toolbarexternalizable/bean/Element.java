@@ -13,9 +13,7 @@ public class Element implements Parcelable, Externalizable{
     private String title;
     private int value;
 
-    public Element() {
-        Log.e("TAG", "create new Element default constractor");
-    }
+    public Element() {}
 
     public Element(String title, int value) {
         this();
@@ -40,23 +38,6 @@ public class Element implements Parcelable, Externalizable{
         }
     };
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        Log.e("TAG", "set value from = " + value);
-        this.value = value;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -69,16 +50,15 @@ public class Element implements Parcelable, Externalizable{
     }
 
     @Override
-    public void writeExternal(ObjectOutput objectOutput) throws IOException {
-        Log.e("TAG", "title = " + title);
-        objectOutput.writeChars(title);
-        objectOutput.writeInt(value);
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(title);
+        out.writeInt(value);
     }
 
     @Override
-    public void readExternal(ObjectInput objectInput) throws IOException, ClassNotFoundException {
-        title = objectInput.readLine();
-        value = objectInput.readInt();
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        title = (String) in.readObject();
+        value = in.readInt();
     }
 
     @Override
@@ -88,4 +68,25 @@ public class Element implements Parcelable, Externalizable{
                 ", value=" + value +
                 '}';
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void decreaseValue() {
+        --value;
+    }
+
+    public void increaseValue() {
+        ++value;
+    }
+
 }

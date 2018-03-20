@@ -1,6 +1,9 @@
 package com.senla.l15_1toolbarexternalizable.adapter;
 
 import android.app.Activity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +16,12 @@ import com.senla.l15_1toolbarexternalizable.R;
 import com.senla.l15_1toolbarexternalizable.bean.Element;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ElementAdapter extends BaseAdapter implements View.OnClickListener {
 
     private static class ViewHolder {
+
+        public Element elementTag;
         public EditText title;
         public TextView value;
 
@@ -28,7 +32,6 @@ public class ElementAdapter extends BaseAdapter implements View.OnClickListener 
     }
 
     private ArrayList<Element> elements;
-
     private LayoutInflater layoutInflater;
 
     public ElementAdapter(Activity activity, ArrayList<Element> elements) {
@@ -69,34 +72,45 @@ public class ElementAdapter extends BaseAdapter implements View.OnClickListener 
 
         viewHolder.title.setText(element.getTitle());
         viewHolder.value.setText(String.valueOf(element.getValue()));
+        viewHolder.elementTag = element;
 
         view.findViewById(R.id.btn_plus).setOnClickListener(this);
         view.findViewById(R.id.btn_minus).setOnClickListener(this);
-        view.findViewById(R.id.btn_reset).setOnClickListener(this);
+        view.findViewById(R.id.btn_delete).setOnClickListener(this);
+        ((EditText)view.findViewById(R.id.et_title)).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b) {
+                    ViewGroup parent = (ViewGroup) view.getParent();
+                    Element elementTag = ((ViewHolder) parent.getTag()).elementTag;
+                    elementTag.setTitle(((TextView) view).getText().toString());
+                }
+            }
+        });
 
         return view;
     }
 
-
     @Override
     public void onClick(View view) {
         ViewGroup parent = (ViewGroup) view.getParent();
+        Element elementTag = ((ViewHolder) parent.getTag()).elementTag;
         switch (view.getId()) {
             case R.id.btn_minus: {
+                elementTag.decreaseValue();
                 TextView tvValue = (TextView) parent.findViewById(R.id.tv_value);
-                int value = Integer.valueOf(tvValue.getText().toString());
-                tvValue.setText(String.valueOf(--value));
+                tvValue.setText(String.valueOf(elementTag.getValue()));
                 break;
             }
             case R.id.btn_plus: {
+                elementTag.increaseValue();
                 TextView tvValue = (TextView) parent.findViewById(R.id.tv_value);
-                int value = Integer.valueOf(tvValue.getText().toString());
-                tvValue.setText(String.valueOf(++value));
+                tvValue.setText(String.valueOf(elementTag.getValue()));
                 break;
             }
-            case R.id.btn_reset:
-                EditText etTitle = (EditText) parent.findViewById(R.id.et_title);
-                etTitle.setText("");
+            case R.id.btn_delete:
+                elements.remove(elementTag);
+                notifyDataSetChanged();
                 break;
         }
     }

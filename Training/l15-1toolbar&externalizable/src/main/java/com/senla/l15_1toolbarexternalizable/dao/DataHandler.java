@@ -1,6 +1,7 @@
 package com.senla.l15_1toolbarexternalizable.dao;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.senla.l15_1toolbarexternalizable.bean.Element;
 
