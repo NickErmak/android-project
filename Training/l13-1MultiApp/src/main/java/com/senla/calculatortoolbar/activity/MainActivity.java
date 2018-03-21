@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(mToolbar);
 
-        SimpleAdapter simpleAdapter = createSimpleAdapter();
-
         ListView lv = (ListView) findViewById(R.id.main_lv);
         lv.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         SimpleAdapter adapter = createSimpleAdapter();

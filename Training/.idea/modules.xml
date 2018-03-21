@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/l13-1MultiApp/l13-1MultiApp.iml" filepath="$PROJECT_DIR$/l13-1MultiApp/l13-1MultiApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/l15-1toolbar&amp;externalizable/l15-1toolbar&amp;externalizable.iml" filepath="$PROJECT_DIR$/l15-1toolbar&amp;externalizable/l15-1toolbar&amp;externalizable.iml" />
       <module fileurl="file://$PROJECT_DIR$/l16-1parcing/l16-1parcing.iml" filepath="$PROJECT_DIR$/l16-1parcing/l16-1parcing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l17-1threads/l17-1threads.iml" filepath="$PROJECT_DIR$/l17-1threads/l17-1threads.iml" />
     </modules>
   </component>
 </project>

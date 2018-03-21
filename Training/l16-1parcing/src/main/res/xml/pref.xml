@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="asdfg"
+        android:title="Choose parsers:">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/preference_tags_parser_key"
+            android:title="tags parser" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/preference_space_parser_key"
+            android:title="space parser" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/preference_uppercase_parser_key"
+            android:title="upper case parser" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/preference_mobile_parser_key"
+            android:title="mobile number parser" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/preference_uri_parser_key"
+            android:title="uri parser" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

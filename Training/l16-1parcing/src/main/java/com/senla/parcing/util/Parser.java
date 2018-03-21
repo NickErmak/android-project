@@ -1,29 +1,44 @@
 package com.senla.parcing.util;
 
-import android.util.Log;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
 
-    public static String parseSpace(String src) {
+    public static String parse(String src, boolean spaceParse, boolean mobileNumberPurse,
+                               boolean uppercaseParse, boolean tagParse, boolean uriParse) {
+        if (spaceParse) {
+            src = parseSpace(src);
+        }
+        if (mobileNumberPurse) {
+            src = parseMobileNumber(src);
+        }
+        if (uppercaseParse) {
+            src = parseToUpperCase(src);
+        }
+        if (tagParse) {
+            src = parseTextInTags(src);
+        }
+        if (uriParse) {
+            src = parseUri(src);
+        }
+        return src;
+    }
+
+    private static String parseSpace(String src) {
         return src.trim().replaceAll(" +", "-");
     }
 
-    public static List<String> parseMobileNumber(String src) {
+    private static String parseMobileNumber(String src) {
         Matcher mt = Pattern.compile("\\b8 \\(0\\d{2}\\) \\d{3}\\-\\d{2}\\-\\d{2}\\b").matcher(src);
-        List<String> numbers = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
         while (mt.find()) {
-            numbers.add(mt.group());
+            sb.append(mt.group());
         }
-        return numbers;
+        return sb.toString();
     }
 
-    public static String parseToUpperCase(String src) {
+    private static String parseToUpperCase(String src) {
         Matcher mt = Pattern.compile("\\b([А-яA-z]{4})\\b").matcher(src);
         StringBuffer sb = new StringBuffer();
         while (mt.find()) {
@@ -32,16 +47,17 @@ public class Parser {
         return mt.appendTail(sb).toString();
     }
 
-    public static List<String> parseTextInTags(String src) {
-        List<String> values = new ArrayList<>();
+    private static String parseTextInTags(String src) {
+        StringBuilder sb = new StringBuilder();
         Matcher mt = Pattern.compile("<one>([^<one>.+<\\/one]+)<\\/one>").matcher(src);
         while (mt.find()) {
-            values.add(mt.group(1));
+            sb.append(mt.group(1))
+                    .append("\n");
         }
-        return values;
+        return sb.toString();
     }
 
-    public static String parseUri(String src) {
+    private static String parseUri(String src) {
         return src.replaceAll(" (www(\\.[a-z0-9\\-]+)+) ", " http://$1 ");
 
     }

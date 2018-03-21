@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/l13-1MultiApp" />
             <option value="$PROJECT_DIR$/l15-1toolbar&amp;externalizable" />
             <option value="$PROJECT_DIR$/l16-1parcing" />
+            <option value="$PROJECT_DIR$/l17-1threads" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

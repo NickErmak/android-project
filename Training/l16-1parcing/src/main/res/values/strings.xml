@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">Parcing</string>
-    <string name="test_text">Это тестовый   текст. Такие    дела
-        Номер то 8 (029) 111-22-33 и ещё 8 (029) 333-22-11,
-        кроме того <one>один</one>   и  <one>раз</one>.
-        Сайтецы www.google.com и www.senla.ru хорошие.</string>
+    <string name="parcing_test_text"></string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="screen_title_main">Главный экран</string>
+    <string name="screen_title_settings">Настройки</string>
+
+    <!-- PREFERENCES-->
+    <string name="preference_tags_parser_key">tagKey</string>
+    <string name="preference_space_parser_key">spaceKey</string>
+    <string name="preference_uppercase_parser_key">uppercaseKey</string>
+    <string name="preference_uri_parser_key">uriKey</string>
+    <string name="preference_mobile_parser_key">mobileKey</string>
+    <string name="result_toolbar_title">Parsed text</string>
 
 </resources>

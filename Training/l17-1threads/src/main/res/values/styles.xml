@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppMultiLineEditText">
+        <item name="android:gravity">top</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:inputType">textMultiLine</item>
+    </style>
+
+</resources>

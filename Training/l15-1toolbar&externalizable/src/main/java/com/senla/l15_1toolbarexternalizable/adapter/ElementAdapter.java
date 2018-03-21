@@ -91,6 +91,7 @@ public class ElementAdapter extends BaseAdapter implements View.OnClickListener 
         return view;
     }
 
+
     @Override
     public void onClick(View view) {
         ViewGroup parent = (ViewGroup) view.getParent();
