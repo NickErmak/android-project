@@ -10,6 +10,8 @@
         <item name="android:gravity">center_horizontal|top</item>
         <item name="android:singleLine">false</item>
         <item name="android:inputType">textMultiLine</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:maxLines">30</item>
     </style>
 
 </resources>

@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AsyncTask" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/l05-1Sum" />
             <option value="$PROJECT_DIR$/l06-1Login" />
@@ -20,6 +21,8 @@
             <option value="$PROJECT_DIR$/l15-1toolbar&amp;externalizable" />
             <option value="$PROJECT_DIR$/l16-1parcing" />
             <option value="$PROJECT_DIR$/l17-1threads" />
+            <option value="$PROJECT_DIR$/l18-1AsyncTask" />
+            <option value="$PROJECT_DIR$/l19-1Server-client" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

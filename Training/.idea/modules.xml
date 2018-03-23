@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AsyncTask/AsyncTask.iml" filepath="$PROJECT_DIR$/AsyncTask/AsyncTask.iml" />
       <module fileurl="file://$PROJECT_DIR$/Training.iml" filepath="$PROJECT_DIR$/Training.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/l05-1Sum/l05-1Sum.iml" filepath="$PROJECT_DIR$/l05-1Sum/l05-1Sum.iml" />
@@ -16,6 +17,8 @@
       <module fileurl="file://$PROJECT_DIR$/l15-1toolbar&amp;externalizable/l15-1toolbar&amp;externalizable.iml" filepath="$PROJECT_DIR$/l15-1toolbar&amp;externalizable/l15-1toolbar&amp;externalizable.iml" />
       <module fileurl="file://$PROJECT_DIR$/l16-1parcing/l16-1parcing.iml" filepath="$PROJECT_DIR$/l16-1parcing/l16-1parcing.iml" />
       <module fileurl="file://$PROJECT_DIR$/l17-1threads/l17-1threads.iml" filepath="$PROJECT_DIR$/l17-1threads/l17-1threads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l18-1AsyncTask/l18-1AsyncTask.iml" filepath="$PROJECT_DIR$/l18-1AsyncTask/l18-1AsyncTask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l19-1Server-client/l19-1Server-client.iml" filepath="$PROJECT_DIR$/l19-1Server-client/l19-1Server-client.iml" />
     </modules>
   </component>
 </project>

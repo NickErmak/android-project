@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Server-client</string>
+    <string name="btn_send_text">send</string>
+    <string name="tv_default_text">response</string>
+    <string name="et_hint">enter param</string>
+    <string name="url">http://pub.zame-dev.org/senla-training-addition/lesson-19.php?param=</string>
+    <string name="progress_dialog_message">connecting to server</string>
+</resources>

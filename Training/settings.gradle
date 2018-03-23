@@ -1,1 +1,1 @@
-include ':app', ':l05-1Sum', ':l06-1Login', ':l07-1Activity', ':l08-1Calculator', ':l10-1TextEditor', ':l11-1Notebook', ':l12-1Notebook', ':l13-1MultiApp', ':l15-1toolbar&externalizable', ':l16-1parcing', ':l17-1threads'
+include ':app', ':l05-1Sum', ':l06-1Login', ':l07-1Activity', ':l08-1Calculator', ':l10-1TextEditor', ':l11-1Notebook', ':l12-1Notebook', ':l13-1MultiApp', ':l15-1toolbar&externalizable', ':l16-1parcing', ':l17-1threads', ':AsyncTask', ':l18-1AsyncTask', ':l19-1Server-client'
