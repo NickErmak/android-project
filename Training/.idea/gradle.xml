@@ -23,6 +23,8 @@
             <option value="$PROJECT_DIR$/l17-1threads" />
             <option value="$PROJECT_DIR$/l18-1AsyncTask" />
             <option value="$PROJECT_DIR$/l19-1Server-client" />
+            <option value="$PROJECT_DIR$/l20-1json-xml" />
+            <option value="$PROJECT_DIR$/l21-1Gson-Bolts" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

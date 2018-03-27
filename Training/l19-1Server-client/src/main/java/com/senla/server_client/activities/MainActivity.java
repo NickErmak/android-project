@@ -49,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
         mTaskHolder = (TaskHolderFragment) mFManager.findFragmentByTag(TaskHolderFragment.TAG);
         if (mTaskHolder == null) {
             mTaskHolder = new TaskHolderFragment();
-            mFManager.beginTransaction().add(mTaskHolder, TaskHolderFragment.TAG).commit();
+            mFManager.beginTransaction()
+                    .add(mTaskHolder, TaskHolderFragment.TAG)
+                    .commit();
         }
     }
 

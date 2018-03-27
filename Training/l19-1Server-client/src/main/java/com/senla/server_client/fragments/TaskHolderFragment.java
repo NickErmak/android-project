@@ -1,25 +1,19 @@
 package com.senla.server_client.fragments;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 
 import com.senla.server_client.App;
-import com.senla.server_client.R;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
+import static com.senla.server_client.utils.ServerConnectionUtil.sendRequest;
 
 public class TaskHolderFragment extends Fragment {
 
@@ -39,7 +33,6 @@ public class TaskHolderFragment extends Fragment {
     }
 
     public void startTask(String param) {
-        Log.e("TAG", "startTask");
         new SendRequestTask().execute(param);
     }
 
@@ -52,21 +45,8 @@ public class TaskHolderFragment extends Fragment {
         protected String doInBackground(String... strings) {
             String responseValue = null;
             try {
-                String encodedParam = Uri.encode(strings[0]);
-                Request request = new Request.Builder()
-                        .url(getString(R.string.url) + encodedParam)
-                        .build();
-
-                try {
-                    TimeUnit.SECONDS.sleep(3);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                OkHttpClient client = new OkHttpClient();
-                Response response = client.newCall(request).execute();
-                responseValue = response.body().string();
-            } catch (IOException e) {
+                responseValue = sendRequest(strings[0]).body().string();
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
             return responseValue;

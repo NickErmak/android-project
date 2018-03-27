@@ -7,6 +7,16 @@ public class App extends Application {
     public static App self;
     private State state = new State();
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        self = this;
+    }
+
+    public State getState() {
+        return state;
+    }
+
     public class State {
 
         private Boolean isLoading = false;
@@ -35,16 +45,6 @@ public class App extends Application {
         public void setResponse(String response) {
             this.response = response;
         }
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        self = this;
-    }
-
-    public State getState() {
-        return state;
     }
 }
 

@@ -19,6 +19,8 @@
       <module fileurl="file://$PROJECT_DIR$/l17-1threads/l17-1threads.iml" filepath="$PROJECT_DIR$/l17-1threads/l17-1threads.iml" />
       <module fileurl="file://$PROJECT_DIR$/l18-1AsyncTask/l18-1AsyncTask.iml" filepath="$PROJECT_DIR$/l18-1AsyncTask/l18-1AsyncTask.iml" />
       <module fileurl="file://$PROJECT_DIR$/l19-1Server-client/l19-1Server-client.iml" filepath="$PROJECT_DIR$/l19-1Server-client/l19-1Server-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l20-1json-xml/l20-1json-xml.iml" filepath="$PROJECT_DIR$/l20-1json-xml/l20-1json-xml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l21-1Gson-Bolts/l21-1Gson-Bolts.iml" filepath="$PROJECT_DIR$/l21-1Gson-Bolts/l21-1Gson-Bolts.iml" />
     </modules>
   </component>
 </project>
