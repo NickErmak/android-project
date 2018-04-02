@@ -34,14 +34,4 @@ public class ResponseProfile  extends Response{
     public void setNotes(String notes) {
         this.notes = notes;
     }
-
-    @Override
-    public String toString() {
-        return "ResponseProfile{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
-                ", notes='" + notes + '\'' +
-                '}';
-    }
 }

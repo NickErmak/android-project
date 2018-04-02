@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SQLite</string>
+    <string name="sql_insert_user">INSERT INTO user (_id, firstName, lastName, email) VALUES (?, ?, ?, ?)</string>
+    <string name="sql_insert_post">INSERT INTO post (_id, userId, title, body, rate) VALUES (?, ?, ?, ?, ?)</string>
+    <string name="sql_insert_comment">INSERT INTO comment (_id, postId, userId, text) VALUES (?, ?, ?, ?)</string>
+    <string name="sql_select_posts">SELECT p._id, p.title, u.email, p.body, u.firstName||\' \'||u.lastName author FROM post p JOIN user u ON p.userId = u._id</string>
+    <string name="sql_select_comments">SELECT c._id, c.text, u.email FROM comment c JOIN user u ON c.userId = u._id WHERE c.postId = ?</string>
+    <string name="post_button_comments_text">comments</string>
+    <string name="db_name">blog.db</string>
+</resources>

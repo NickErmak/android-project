@@ -5,6 +5,7 @@
     <string name="et_login_hint">login</string>
     <string name="et_password_hint">password</string>
     <string name="main_btn_login_text">Login</string>
+
     <!--PROFILE-->
     <string name="profile_tv_email_text">E-mail:</string>
     <string name="profile_tv_first_name_text">First name:</string>
@@ -17,4 +18,7 @@
     <string name="profile_btn_logout_text">Log out</string>
     <string name="error_empty">Can\'t be empty</string>
     <string name="error_incorrect_email">incorrect email!</string>
+    <string name="error_message">connection problems</string>
+    <string name="progress_dialog_message">connecting</string>
+    <string name="progress_dialog_title" />
 </resources>

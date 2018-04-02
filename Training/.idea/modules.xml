@@ -21,6 +21,8 @@
       <module fileurl="file://$PROJECT_DIR$/l19-1Server-client/l19-1Server-client.iml" filepath="$PROJECT_DIR$/l19-1Server-client/l19-1Server-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/l20-1json-xml/l20-1json-xml.iml" filepath="$PROJECT_DIR$/l20-1json-xml/l20-1json-xml.iml" />
       <module fileurl="file://$PROJECT_DIR$/l21-1Gson-Bolts/l21-1Gson-Bolts.iml" filepath="$PROJECT_DIR$/l21-1Gson-Bolts/l21-1Gson-Bolts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l22-1retrofit/l22-1retrofit.iml" filepath="$PROJECT_DIR$/l22-1retrofit/l22-1retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/l24-1sqlite/l24-1sqlite.iml" filepath="$PROJECT_DIR$/l24-1sqlite/l24-1sqlite.iml" />
     </modules>
   </component>
 </project>

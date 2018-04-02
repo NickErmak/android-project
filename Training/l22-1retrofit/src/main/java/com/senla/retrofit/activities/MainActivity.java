@@ -1,0 +1,146 @@
+package com.senla.retrofit.activities;
+
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.senla.retrofit.App;
+import com.senla.retrofit.R;
+import com.senla.retrofit.models.State;
+import com.senla.retrofit.models.requests.RequestLogin;
+import com.senla.retrofit.providers.NetworkConnectionProvider;
+import com.senla.retrofit.reflection.TestReflection;
+import com.senla.retrofit.utils.StringUtil;
+
+import static com.senla.retrofit.utils.StringUtil.checkEmail;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ProgressDialog mProgressDialog;
+    private TextView mTvError;
+    private EditText mEtLogin, mEtPassword;
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            State.RESPONSE_STATUS status = (State.RESPONSE_STATUS) intent.getSerializableExtra(NetworkConnectionProvider.EXTRA_STATUS);
+            switch (status) {
+                case ok:
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    break;
+                case error:
+                    setError();
+                    break;
+            }
+            dismissProgress();
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mEtLogin = findViewById(R.id.main_et_login);
+        mEtPassword = findViewById(R.id.main_et_password);
+        mTvError = findViewById(R.id.main_tv_error);
+
+        TestReflection.test();
+    }
+
+    public void onClickLogin(View view) {
+        resetError();
+        boolean hasError = false;
+        String login = mEtLogin.getText().toString();
+        String password = mEtPassword.getText().toString();
+
+        if (login.isEmpty()) {
+            mEtLogin.setError(getString(R.string.error_empty));
+        } else if (!checkEmail(login)) {
+            mEtLogin.setError(getString(R.string.error_incorrect_email));
+            hasError = true;
+        }
+
+        if (password.isEmpty()) {
+            mEtPassword.setError(getString(R.string.error_empty));
+            hasError = true;
+        }
+
+        if (!hasError) {
+            RequestLogin request = new RequestLogin();
+            request.setEmail(login);
+            request.setPassword(password);
+            NetworkConnectionProvider.login(request);
+            showProgress();
+        }
+    }
+
+    private void setError() {
+        mTvError.setText(StringUtil.getOutputError(App.state.getErrorMessage()));
+    }
+
+    private void resetError() {
+        App.state.setErrorMessage("");
+        mTvError.setText("");
+        mEtLogin.setError(null);
+        mEtPassword.setError(null);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        App.state.setLogin(mEtLogin.getText().toString());
+        App.state.setPassword(mEtPassword.getText().toString());
+        dismissProgress();
+        LocalBroadcastManager.getInstance(App.self).unregisterReceiver(receiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateFromState();
+        LocalBroadcastManager.getInstance(App.self).registerReceiver(
+                receiver,
+                new IntentFilter(NetworkConnectionProvider.BROADCAST_ACTION)
+        );
+
+        //debug
+        mEtLogin.setText("john@domain.tld");
+        mEtPassword.setText("123123");
+    }
+
+    private void updateFromState() {
+        if (App.state.isRunning()) {
+            showProgress();
+        }
+        mEtLogin.setText(App.state.getLogin());
+        mEtPassword.setText(App.state.getPassword());
+        mTvError.setText(App.state.getErrorMessage());
+    }
+
+    private void dismissProgress() {
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
+            mProgressDialog = null;
+        }
+    }
+
+    private void showProgress() {
+        if (mProgressDialog == null) {
+            mProgressDialog = ProgressDialog.show(
+                    this,
+                    getString(R.string.progress_dialog_title),
+                    getString(R.string.progress_dialog_message),
+                    true,
+                    false
+            );
+        }
+    }
+}
